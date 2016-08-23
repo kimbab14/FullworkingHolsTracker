@@ -19,10 +19,7 @@ import com.utils.Validate;
  */
 @WebServlet("/Login")
 public class Login extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-  Logger logger = Logger.getAnonymousLogger();
-  Validate validate = new Validate();
-       
+	private static final long serialVersionUID = 1L;      
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -35,28 +32,7 @@ public class Login extends HttpServlet {
 	 */
   @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	  response.setContentType("text/html");
-	  String username =  request.getParameter("username");
-	  String password = request.getParameter("pass");
-	  
-	  User user = new User();
-	  user.setUsername(username);
-	  user.setPassword(password);
-	  
-	  if (validate.findUser(user) == true ) {
-	    //if true then redirect to holiday tracker page
-	    RequestDispatcher rs = request.getRequestDispatcher("/Track.jsp");
-	    try {
-      rs.forward(request, response);
-	    } catch (Exception e) {
-	      logger.log(Level.WARNING, "Can't forward request and response.", e);
-	    }
-	  } else {
-	    //else Register or stay on the same, tell
-	    //the user that we can't find the information 
-	    //on the database and do register.
-	    logger.log(Level.INFO, "Cant validate user.");
-	  }
+	 //all code will be on the doPost
 	}
 
 	/**
@@ -64,11 +40,31 @@ public class Login extends HttpServlet {
 	 */
   @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	  try {
-	    doGet(request, response);
-	  } catch (Exception e){
-	    logger.log(Level.WARNING, "Can't get request and response.", e);
-	  }
+    response.setContentType("text/html");
+    Validate validate = new Validate();
+    Logger logger = Logger.getAnonymousLogger();
+  
+    String username =  request.getParameter("username");
+    String password = request.getParameter("pass");
+    
+    User user = new User();
+    user.setUsername(username);
+    user.setPassword(password);
+    
+    if (validate.findUser(user) == true ) {
+      //if true then redirect to holiday tracker page
+      RequestDispatcher rs = request.getRequestDispatcher("/Track.jsp");
+      try {
+      rs.forward(request, response);
+      } catch (Exception e) {
+        logger.log(Level.WARNING, "Can't forward request and response.", e);
+      }
+    } else {
+      //else Register or stay on the same, tell
+      //the user that we can't find the information 
+      //on the database and do register.
+      logger.log(Level.INFO, "Cant validate user.");
+    }
 	}
 
 }
