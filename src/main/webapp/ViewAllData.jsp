@@ -44,7 +44,7 @@
 		                </tr>
 		            </thead>
 		            <tbody>
-		          		<% for(User c: FetchDataFromDb.GetHolsData()){ %>
+		          		<% for(User c: FetchDataFromDb.getHolsData()){ %>
 						  <tr>
 						  <td><%=c.getID()%></td>
 						    <td><%=c.getEmpId()%></td>

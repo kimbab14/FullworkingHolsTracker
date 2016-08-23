@@ -39,10 +39,11 @@ public class User {
   }
   /**
    * another default constructor that is used
-   * in the Login and Submit class
+   * in the Login and Submit class.
    */
   public User() {
-    //default constructor
+    //default constructor 
+    //do i need this as a final one?
   }
  
   /**

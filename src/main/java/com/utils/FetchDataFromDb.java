@@ -14,12 +14,18 @@ import com.conn.DbConnection;
  * to be use in the datatable.
  * 
  */
-public final class FetchDataFromDb {
+public class FetchDataFromDb {
+  /**
+   * private constructor.
+   */
+  private FetchDataFromDb(){
+    //private default constructor
+  }
   /**
    * get a list of all data from the database
    * @return ls
    */
-  public static List<User> GetHolsData() {
+  public static List<User> getHolsData() {
     /**
      * Create an instance of a class DbConnection
      */
@@ -32,7 +38,7 @@ public final class FetchDataFromDb {
     /**
      * list all the data from the query.
      */
-    List<User> ls = new LinkedList<User>();
+    List<User> ls = new LinkedList<>();
     try {
       ResultSet rs = db.getCon().prepareStatement("SELECT * FROM jsp ORDER BY ID DESC").executeQuery();
       while (rs.next()) {
