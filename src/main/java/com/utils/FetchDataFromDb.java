@@ -14,7 +14,7 @@ import com.conn.DbConnection;
  * to be use in the datatable.
  * 
  */
-public class FetchDataFromDb {
+public final class FetchDataFromDb {
   /**
    * get a list of all data from the database
    * @return ls

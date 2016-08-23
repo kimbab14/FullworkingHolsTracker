@@ -51,7 +51,7 @@ public class Login extends HttpServlet {
     user.setUsername(username);
     user.setPassword(password);
     
-    if (validate.findUser(user) == true ) {
+    if (validate.findUser(user) ? true : false ) {
       //if true then redirect to holiday tracker page
       RequestDispatcher rs = request.getRequestDispatcher("/Track.jsp");
       try {
