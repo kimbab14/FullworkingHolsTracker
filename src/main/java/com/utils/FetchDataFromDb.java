@@ -9,7 +9,11 @@ import java.util.logging.Logger;
 
 import com.bean.User;
 import com.conn.DbConnection;
-
+/**
+ * Class that will fetch data from db
+ * to be use in the datatable.
+ * 
+ */
 public class FetchDataFromDb {
   /**
    * get a list of all data from the database
@@ -20,8 +24,14 @@ public class FetchDataFromDb {
      * Create an instance of a class DbConnection
      */
     DbConnection db = new DbConnection();
+    /*
+     * get database connection
+     */
     db.getConnection();
     Logger logger = Logger.getAnonymousLogger();
+    /**
+     * list all the data from the query.
+     */
     List<User> ls = new LinkedList<User>();
     try {
       ResultSet rs = db.getCon().prepareStatement("SELECT * FROM jsp ORDER BY ID DESC").executeQuery();

@@ -10,8 +10,10 @@ import com.bean.User;
 import com.conn.DbConnection;
 
 /**
- * Class that will be used to Insert 
- * data into the database.
+ * Class that will be use when the
+ * user press the login button,
+ * it will validate if the inputed
+ * username and password already exists
  * @author jelica60589
  */
 public class Validate {

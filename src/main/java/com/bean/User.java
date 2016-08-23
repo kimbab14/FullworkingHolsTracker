@@ -119,10 +119,18 @@ public class User {
     return endDate;
   }
   
+  /**
+   * get Submitted Date
+   * @return submittedDate
+   */
   public String getDateSubmitted(){
     return submittedDate;
   }
   
+  /**
+   * Get ID from the database.
+   * @return id
+   */
   public int getID(){
     return id;
   }
