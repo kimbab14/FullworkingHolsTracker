@@ -46,7 +46,7 @@
 		            <tbody>
 		          		<% for(User c: FetchDataFromDb.getHolsData()){ %>
 						  <tr>
-						  <td><%=c.getID()%></td>
+						    <td><%=c.getID()%></td>
 						    <td><%=c.getEmpId()%></td>
 						    <td><%=c.getFullname()%></td>
 						    <td><%=c.getStartDate()%></td>
