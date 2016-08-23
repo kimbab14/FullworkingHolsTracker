@@ -27,6 +27,7 @@ public class User {
    * @param startDate
    * @param endDate
    * @param dbID
+   * @submittedDates
    */
   public User(int dbID , int empID, String fullname, String startDate, String endDate, String submittedDate) {
     this.fullName = fullname;
@@ -41,7 +42,7 @@ public class User {
    * in the Login and Submit class
    */
   public User() {
-    
+    //default constructor
   }
  
   /**

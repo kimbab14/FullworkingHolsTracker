@@ -1,6 +1,8 @@
 package com.servlet;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,6 +20,8 @@ import com.utils.Validate;
 @WebServlet("/Login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+  Logger logger = Logger.getAnonymousLogger();
+  Validate validate = new Validate();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -29,9 +33,8 @@ public class Login extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+  @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
-	  Validate validate = new Validate();
 	  response.setContentType("text/html");
 	  String username =  request.getParameter("username");
 	  String password = request.getParameter("pass");
@@ -43,21 +46,29 @@ public class Login extends HttpServlet {
 	  if (validate.findUser(user) == true ) {
 	    //if true then redirect to holiday tracker page
 	    RequestDispatcher rs = request.getRequestDispatcher("/Track.jsp");
+	    try {
       rs.forward(request, response);
-	    System.out.println("Found");	    
+	    } catch (Exception e) {
+	      logger.log(Level.WARNING, "Can't forward request and response.", e);
+	    }
 	  } else {
 	    //else Register or stay on the same, tell
 	    //the user that we can't find the information 
 	    //on the database and do register.
-	    System.out.println("Not found");
+	    logger.log(Level.INFO, "Cant validate user.");
 	  }
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+  @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+	  try {
+	    doGet(request, response);
+	  } catch (Exception e){
+	    logger.log(Level.WARNING, "Can't get request and response.", e);
+	  }
 	}
 
 }
