@@ -6,30 +6,7 @@ package com.bean;
  *
  */
 public class User {
-  /**
-   * Constructor for User that will be use for the 
-   * fetching of the data to be displayed on the datatable.
-   * @param fullname
-   * @param empID
-   * @param startDate
-   * @param endDate
-   */
-  public User(int ID , int empID, String fullname, String startDate, String endDate, String submittedDate) {
-    this.fullName = fullname;
-    this.empID = empID;
-    this.startDate = startDate;
-    this.endDate = endDate;
-    this.submittedDate = submittedDate;
-    this.id = ID;
-  }
-  /**
-   * another default constructor that is used
-   * in the Login and Submit class
-   */
-  public User() {
-    
-  }
- 
+  
   /**
    * Variables
    */
@@ -42,6 +19,31 @@ public class User {
   private String submittedDate;
   private int id;
   
+  /**
+   * Constructor for User that will be use for the 
+   * fetching of the data to be displayed on the datatable.
+   * @param fullname
+   * @param empID
+   * @param startDate
+   * @param endDate
+   * @param dbID
+   */
+  public User(int dbID , int empID, String fullname, String startDate, String endDate, String submittedDate) {
+    this.fullName = fullname;
+    this.empID = empID;
+    this.startDate = startDate;
+    this.endDate = endDate;
+    this.submittedDate = submittedDate;
+    this.id = dbID;
+  }
+  /**
+   * another default constructor that is used
+   * in the Login and Submit class
+   */
+  public User() {
+    
+  }
+ 
   /**
    * set username
    */
