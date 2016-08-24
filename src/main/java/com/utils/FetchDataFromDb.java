@@ -34,7 +34,7 @@ public class FetchDataFromDb {
      * get database connection
      */
     db.getConnection();
-    Logger logger = Logger.getAnonymousLogger();
+    final Logger logger = Logger.getLogger(FetchDataFromDb.class.getName());
     /**
      * list all the data from the query.
      */

@@ -34,7 +34,7 @@ public class DbConnectionInfo {
     /**
      * Logger to use to log error.
      */
-    Logger logger = Logger.getAnonymousLogger();
+    final Logger logger = Logger.getLogger(DbConnectionInfo.class.getName());
     /*
      * get .properties file location
      */

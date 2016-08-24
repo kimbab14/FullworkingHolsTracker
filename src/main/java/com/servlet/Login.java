@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bean.User;
+import com.conn.DbConnection;
 import com.utils.Validate;
 
 /**
@@ -42,7 +43,7 @@ public class Login extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     response.setContentType("text/html");
     Validate validate = new Validate();
-    Logger logger = Logger.getAnonymousLogger();
+    final Logger logger = Logger.getLogger(Login.class.getName());
   
     String username =  request.getParameter("username");
     String password = request.getParameter("pass");

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bean.User;
+import com.conn.DbConnection;
 import com.utils.InsertHolidayInfo;
 
 /**
@@ -42,7 +43,7 @@ public class Submit extends HttpServlet {
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
     response.setContentType("text/html"); 
-    Logger logger = Logger.getAnonymousLogger();
+    final Logger logger = Logger.getLogger(Submit.class.getName());
     //get the user input from the form
     try {
     String name = request.getParameter("emp");

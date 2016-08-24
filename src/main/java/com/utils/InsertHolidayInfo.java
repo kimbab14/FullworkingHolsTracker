@@ -25,7 +25,7 @@ public class InsertHolidayInfo {
    * check if we inserted data into the database.
    */
   private boolean isInserted = false;
-  Logger logger = Logger.getAnonymousLogger();
+  final Logger logger = Logger.getLogger(InsertHolidayInfo.class.getName());
   /**
    * method that insert information into the database.
    * @param user

@@ -43,7 +43,6 @@ public class User {
    */
   public User() {
     //default constructor 
-    //do i need this as a final one?
   }
  
   /**

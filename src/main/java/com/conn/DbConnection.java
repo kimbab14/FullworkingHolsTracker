@@ -26,10 +26,10 @@ public class DbConnection {
    */
   public void getConnection(){
     dbConInfo.connectTodb();
-    /**
-     * Logger to use to log error.
-     */
-    Logger logger = Logger.getAnonymousLogger();
+  /**
+   * Logger to use to log error.
+   */
+  final Logger logger = Logger.getLogger(DbConnection.class.getName());
     /**
      * get the value from the DbConnectionInfo class
      */

@@ -29,7 +29,7 @@ public class Validate {
    * check if we inserted data into the database.
    */
   private boolean status = false;
-  Logger logger = Logger.getAnonymousLogger();
+  final Logger logger = Logger.getLogger(Validate.class.getName());
   /**
    * resutlset
    */
